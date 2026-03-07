@@ -25,3 +25,11 @@ npm start
 - `GET /products/:id`
 - `POST /products`
 
+## Development Workflow (Git Flow)
+1. Create a feature branch from `develop`: `feature/<name>`
+2. Commit changes on the feature branch
+3. Open a PR into `develop`
+4. Create a release branch from `develop`: `release/<version>`
+5. Merge `release/<version>` into `main` and tag the release
+6. Merge `main` back into `develop`
+7. For urgent fixes, create `hotfix/<version>` from `main`, then merge into `main` and `develop`
