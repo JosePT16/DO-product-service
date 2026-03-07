@@ -1,0 +1,184 @@
+﻿
+/work/reports/do-product-service_local.tar (alpine 3.21.3)
+==========================================================
+Total: 32 (UNKNOWN: 0, LOW: 5, MEDIUM: 21, HIGH: 4, CRITICAL: 2)
+
+┌───────────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────┬──────────────────────────────────────────────────────────────┐
+│    Library    │ Vulnerability  │ Severity │ Status │ Installed Version │ Fixed Version │                            Title                             │
+├───────────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ busybox       │ CVE-2024-58251 │ MEDIUM   │ fixed  │ 1.37.0-r12        │ 1.37.0-r14    │ In netstat in BusyBox through 1.37.0, local users can launch │
+│               │                │          │        │                   │               │ of networ...                                                 │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2024-58251                   │
+│               ├────────────────┼──────────┤        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-46394 │ LOW      │        │                   │               │ In tar in BusyBox through 1.37.0, a TAR archive can have     │
+│               │                │          │        │                   │               │ filenames...                                                 │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-46394                   │
+├───────────────┼────────────────┼──────────┤        │                   │               ├──────────────────────────────────────────────────────────────┤
+│ busybox-binsh │ CVE-2024-58251 │ MEDIUM   │        │                   │               │ In netstat in BusyBox through 1.37.0, local users can launch │
+│               │                │          │        │                   │               │ of networ...                                                 │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2024-58251                   │
+│               ├────────────────┼──────────┤        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-46394 │ LOW      │        │                   │               │ In tar in BusyBox through 1.37.0, a TAR archive can have     │
+│               │                │          │        │                   │               │ filenames...                                                 │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-46394                   │
+├───────────────┼────────────────┼──────────┤        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ libcrypto3    │ CVE-2025-15467 │ CRITICAL │        │ 3.3.3-r0          │ 3.3.6-r0      │ openssl: OpenSSL: Remote code execution or Denial of Service │
+│               │                │          │        │                   │               │ via oversized Initialization...                              │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-15467                   │
+│               ├────────────────┼──────────┤        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-69419 │ HIGH     │        │                   │               │ openssl: OpenSSL: Arbitrary code execution due to            │
+│               │                │          │        │                   │               │ out-of-bounds write in PKCS#12 processing...                 │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-69419                   │
+│               ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-69421 │          │        │                   │               │ openssl: OpenSSL: Denial of Service via malformed PKCS#12    │
+│               │                │          │        │                   │               │ file processing                                              │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-69421                   │
+│               ├────────────────┼──────────┤        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-15468 │ MEDIUM   │        │                   │               │ openssl: OpenSSL: Denial of Service via NULL pointer         │
+│               │                │          │        │                   │               │ dereference in QUIC protocol...                              │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-15468                   │
+│               ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-66199 │          │        │                   │               │ openssl: OpenSSL: Denial of Service due to excessive memory  │
+│               │                │          │        │                   │               │ allocation in TLS...                                         │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-66199                   │
+│               ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-68160 │          │        │                   │               │ openssl: OpenSSL: Denial of Service due to out-of-bounds     │
+│               │                │          │        │                   │               │ write in BIO filter...                                       │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-68160                   │
+│               ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-69418 │          │        │                   │               │ openssl: OpenSSL: Information disclosure and data tampering  │
+│               │                │          │        │                   │               │ via specific low-level OCB encryption/decryption...          │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-69418                   │
+│               ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-69420 │          │        │                   │               │ openssl: OpenSSL: Denial of Service via malformed TimeStamp  │
+│               │                │          │        │                   │               │ Response                                                     │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-69420                   │
+│               ├────────────────┤          │        │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-9230  │          │        │                   │ 3.3.5-r0      │ openssl: Out-of-bounds read & write in RFC 3211 KEK Unwrap   │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-9230                    │
+│               ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-9231  │          │        │                   │               │ openssl: Timing side-channel in SM2 algorithm on 64 bit ARM  │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-9231                    │
+│               ├────────────────┤          │        │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│               │ CVE-2026-22795 │          │        │                   │ 3.3.6-r0      │ openssl: OpenSSL: Denial of Service due to type confusion in │
+│               │                │          │        │                   │               │ PKCS#12 file...                                              │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-22795                   │
+│               ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2026-22796 │          │        │                   │               │ openssl: OpenSSL: Denial of Service via type confusion in    │
+│               │                │          │        │                   │               │ PKCS#7 signature verification...                             │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-22796                   │
+│               ├────────────────┼──────────┤        │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-9232  │ LOW      │        │                   │ 3.3.5-r0      │ openssl: Out-of-bounds read in HTTP client no_proxy handling │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-9232                    │
+├───────────────┼────────────────┼──────────┤        │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│ libssl3       │ CVE-2025-15467 │ CRITICAL │        │                   │ 3.3.6-r0      │ openssl: OpenSSL: Remote code execution or Denial of Service │
+│               │                │          │        │                   │               │ via oversized Initialization...                              │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-15467                   │
+│               ├────────────────┼──────────┤        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-69419 │ HIGH     │        │                   │               │ openssl: OpenSSL: Arbitrary code execution due to            │
+│               │                │          │        │                   │               │ out-of-bounds write in PKCS#12 processing...                 │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-69419                   │
+│               ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-69421 │          │        │                   │               │ openssl: OpenSSL: Denial of Service via malformed PKCS#12    │
+│               │                │          │        │                   │               │ file processing                                              │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-69421                   │
+│               ├────────────────┼──────────┤        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-15468 │ MEDIUM   │        │                   │               │ openssl: OpenSSL: Denial of Service via NULL pointer         │
+│               │                │          │        │                   │               │ dereference in QUIC protocol...                              │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-15468                   │
+│               ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-66199 │          │        │                   │               │ openssl: OpenSSL: Denial of Service due to excessive memory  │
+│               │                │          │        │                   │               │ allocation in TLS...                                         │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-66199                   │
+│               ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-68160 │          │        │                   │               │ openssl: OpenSSL: Denial of Service due to out-of-bounds     │
+│               │                │          │        │                   │               │ write in BIO filter...                                       │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-68160                   │
+│               ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-69418 │          │        │                   │               │ openssl: OpenSSL: Information disclosure and data tampering  │
+│               │                │          │        │                   │               │ via specific low-level OCB encryption/decryption...          │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-69418                   │
+│               ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-69420 │          │        │                   │               │ openssl: OpenSSL: Denial of Service via malformed TimeStamp  │
+│               │                │          │        │                   │               │ Response                                                     │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-69420                   │
+│               ├────────────────┤          │        │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-9230  │          │        │                   │ 3.3.5-r0      │ openssl: Out-of-bounds read & write in RFC 3211 KEK Unwrap   │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-9230                    │
+│               ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-9231  │          │        │                   │               │ openssl: Timing side-channel in SM2 algorithm on 64 bit ARM  │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-9231                    │
+│               ├────────────────┤          │        │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│               │ CVE-2026-22795 │          │        │                   │ 3.3.6-r0      │ openssl: OpenSSL: Denial of Service due to type confusion in │
+│               │                │          │        │                   │               │ PKCS#12 file...                                              │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-22795                   │
+│               ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2026-22796 │          │        │                   │               │ openssl: OpenSSL: Denial of Service via type confusion in    │
+│               │                │          │        │                   │               │ PKCS#7 signature verification...                             │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-22796                   │
+│               ├────────────────┼──────────┤        │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-9232  │ LOW      │        │                   │ 3.3.5-r0      │ openssl: Out-of-bounds read in HTTP client no_proxy handling │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-9232                    │
+├───────────────┼────────────────┼──────────┤        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ ssl_client    │ CVE-2024-58251 │ MEDIUM   │        │ 1.37.0-r12        │ 1.37.0-r14    │ In netstat in BusyBox through 1.37.0, local users can launch │
+│               │                │          │        │                   │               │ of networ...                                                 │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2024-58251                   │
+│               ├────────────────┼──────────┤        │                   │               ├──────────────────────────────────────────────────────────────┤
+│               │ CVE-2025-46394 │ LOW      │        │                   │               │ In tar in BusyBox through 1.37.0, a TAR archive can have     │
+│               │                │          │        │                   │               │ filenames...                                                 │
+│               │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-46394                   │
+└───────────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────┴──────────────────────────────────────────────────────────────┘
+
+Node.js (node-pkg)
+==================
+Total: 12 (UNKNOWN: 0, LOW: 2, MEDIUM: 0, HIGH: 10, CRITICAL: 0)
+
+┌────────────────────────────────┬────────────────┬──────────┬────────┬───────────────────┬─────────────────────────────────────────────────────────┬─────────────────────────────────────────────────────────────┐
+│            Library             │ Vulnerability  │ Severity │ Status │ Installed Version │                      Fixed Version                      │                            Title                            │
+├────────────────────────────────┼────────────────┼──────────┼────────┼───────────────────┼─────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
+│ brace-expansion (package.json) │ CVE-2025-5889  │ LOW      │ fixed  │ 2.0.1             │ 2.0.2, 1.1.12, 3.0.1, 4.0.1                             │ brace-expansion: juliangruber brace-expansion index.js      │
+│                                │                │          │        │                   │                                                         │ expand redos                                                │
+│                                │                │          │        │                   │                                                         │ https://avd.aquasec.com/nvd/cve-2025-5889                   │
+├────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼─────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
+│ cross-spawn (package.json)     │ CVE-2024-21538 │ HIGH     │        │ 7.0.3             │ 7.0.5, 6.0.6                                            │ cross-spawn: regular expression denial of service           │
+│                                │                │          │        │                   │                                                         │ https://avd.aquasec.com/nvd/cve-2024-21538                  │
+├────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼─────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
+│ diff (package.json)            │ CVE-2026-24001 │ LOW      │        │ 5.2.0             │ 8.0.3, 5.2.2, 4.0.4, 3.5.1                              │ jsdiff: denial of service vulnerability in parsePatch and   │
+│                                │                │          │        │                   │                                                         │ applyPatch                                                  │
+│                                │                │          │        │                   │                                                         │ https://avd.aquasec.com/nvd/cve-2026-24001                  │
+├────────────────────────────────┼────────────────┼──────────┤        ├───────────────────┼─────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
+│ glob (package.json)            │ CVE-2025-64756 │ HIGH     │        │ 10.4.2            │ 11.1.0, 10.5.0                                          │ glob: glob: Command Injection Vulnerability via Malicious   │
+│                                │                │          │        │                   │                                                         │ Filenames                                                   │
+│                                │                │          │        │                   │                                                         │ https://avd.aquasec.com/nvd/cve-2025-64756                  │
+├────────────────────────────────┼────────────────┤          │        ├───────────────────┼─────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
+│ minimatch (package.json)       │ CVE-2026-26996 │          │        │ 9.0.5             │ 10.2.1, 9.0.6, 8.0.5, 7.4.7, 6.2.1, 5.1.7, 4.2.4, 3.1.3 │ minimatch: minimatch: Denial of Service via specially       │
+│                                │                │          │        │                   │                                                         │ crafted glob patterns                                       │
+│                                │                │          │        │                   │                                                         │ https://avd.aquasec.com/nvd/cve-2026-26996                  │
+│                                ├────────────────┤          │        │                   ├─────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                │ CVE-2026-27903 │          │        │                   │ 10.2.3, 9.0.7, 8.0.6, 7.4.8, 6.2.2, 5.1.8, 4.2.5, 3.1.3 │ minimatch: minimatch: Denial of Service due to unbounded    │
+│                                │                │          │        │                   │                                                         │ recursive backtracking via crafted...                       │
+│                                │                │          │        │                   │                                                         │ https://avd.aquasec.com/nvd/cve-2026-27903                  │
+│                                ├────────────────┤          │        │                   ├─────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                │ CVE-2026-27904 │          │        │                   │ 10.2.3, 9.0.7, 8.0.6, 7.4.8, 6.2.2, 5.1.8, 4.2.5, 3.1.4 │ minimatch: Minimatch: Denial of Service via catastrophic    │
+│                                │                │          │        │                   │                                                         │ backtracking in glob expressions                            │
+│                                │                │          │        │                   │                                                         │ https://avd.aquasec.com/nvd/cve-2026-27904                  │
+├────────────────────────────────┼────────────────┤          │        ├───────────────────┼─────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
+│ tar (package.json)             │ CVE-2026-23745 │          │        │ 6.2.1             │ 7.5.3                                                   │ node-tar: tar: node-tar: Arbitrary file overwrite and       │
+│                                │                │          │        │                   │                                                         │ symlink poisoning via unsanitized linkpaths...              │
+│                                │                │          │        │                   │                                                         │ https://avd.aquasec.com/nvd/cve-2026-23745                  │
+│                                ├────────────────┤          │        │                   ├─────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                │ CVE-2026-23950 │          │        │                   │ 7.5.4                                                   │ node-tar: tar: node-tar: Arbitrary file overwrite via       │
+│                                │                │          │        │                   │                                                         │ Unicode path collision race condition...                    │
+│                                │                │          │        │                   │                                                         │ https://avd.aquasec.com/nvd/cve-2026-23950                  │
+│                                ├────────────────┤          │        │                   ├─────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                │ CVE-2026-24842 │          │        │                   │ 7.5.7                                                   │ node-tar: tar: node-tar: Arbitrary file creation via path   │
+│                                │                │          │        │                   │                                                         │ traversal bypass in hardlink...                             │
+│                                │                │          │        │                   │                                                         │ https://avd.aquasec.com/nvd/cve-2026-24842                  │
+│                                ├────────────────┤          │        │                   ├─────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                │ CVE-2026-26960 │          │        │                   │ 7.5.8                                                   │ tar: node-tar: node-tar: Arbitrary file read/write via      │
+│                                │                │          │        │                   │                                                         │ malicious archive hardlink creation                         │
+│                                │                │          │        │                   │                                                         │ https://avd.aquasec.com/nvd/cve-2026-26960                  │
+│                                ├────────────────┤          │        │                   ├─────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
+│                                │ CVE-2026-29786 │          │        │                   │ 7.5.10                                                  │ tar has Hardlink Path Traversal via Drive-Relative Linkpath │
+│                                │                │          │        │                   │                                                         │ https://avd.aquasec.com/nvd/cve-2026-29786                  │
+└────────────────────────────────┴────────────────┴──────────┴────────┴───────────────────┴─────────────────────────────────────────────────────────┴─────────────────────────────────────────────────────────────┘
