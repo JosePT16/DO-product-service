@@ -42,6 +42,8 @@ pipeline {
 
         stage('Container Build') {
             steps {
+                powershell 'Write-Host "Workspace diagnostics"; Get-Location; Get-ChildItem -Force'
+                powershell 'Write-Host "Docker diagnostics"; whoami; docker version; docker info'
                 powershell "docker build -f ${env.DOCKERFILE_PATH} -t ${env.LOCAL_IMAGE} -t ${env.IMAGE_REPO}:${env.VERSION_TAG} -t ${env.IMAGE_REPO}:${env.COMMIT_TAG} ."
             }
         }
