@@ -78,20 +78,28 @@ pipeline {
                 }
             }
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    powershell 'echo $env:DOCKER_PASS | docker login -u $env:DOCKER_USER --password-stdin'
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-creds',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+                    bat 'docker logout'
+                    bat '@echo %DOCKER_PASS% | docker login -u %DOCKER_USER% --password-stdin docker.io'
                     script {
                         def tags = buildTags()
-                        powershell "docker push ${env.IMAGE_REPO}:${tags.versionTag}"
-                        powershell "docker push ${env.IMAGE_REPO}:${tags.commitTag}"
+                        echo "Pushing ${env.IMAGE_REPO}:${tags.versionTag}"
+                        echo "Pushing ${env.IMAGE_REPO}:${tags.commitTag}"
+                        bat "docker push ${env.IMAGE_REPO}:${tags.versionTag}"
+                        bat "docker push ${env.IMAGE_REPO}:${tags.commitTag}"
                         if (env.BRANCH_NAME == 'main') {
-                            powershell "docker tag ${tags.localImage} ${env.IMAGE_REPO}:latest"
-                            powershell "docker push ${env.IMAGE_REPO}:latest"
+                            bat "docker tag ${tags.localImage} ${env.IMAGE_REPO}:latest"
+                            bat "docker push ${env.IMAGE_REPO}:latest"
                         }
                     }
                 }
             }
         }
+
 
         stage('Deploy') {
             when {
