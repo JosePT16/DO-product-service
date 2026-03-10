@@ -66,7 +66,7 @@ pipeline {
             }
         }
 
-        stage('Container Push') {
+       stage('Container Push') {
             when {
                 allOf {
                     not { changeRequest() }
@@ -87,6 +87,9 @@ pipeline {
                     bat '@echo %DOCKER_PASS% | docker login -u %DOCKER_USER% --password-stdin docker.io'
                     script {
                         def tags = buildTags()
+                        bat "docker tag ${tags.localImage} ${env.IMAGE_REPO}:${tags.versionTag}"
+                        bat "docker tag ${tags.localImage} ${env.IMAGE_REPO}:${tags.commitTag}"
+                        bat 'docker images'
                         echo "Pushing ${env.IMAGE_REPO}:${tags.versionTag}"
                         echo "Pushing ${env.IMAGE_REPO}:${tags.commitTag}"
                         bat "docker push ${env.IMAGE_REPO}:${tags.versionTag}"
