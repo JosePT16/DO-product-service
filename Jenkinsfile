@@ -9,8 +9,21 @@ def buildTags() {
     ]
 }
 
+def resolveDeployEnvironment() {
+    if (env.BRANCH_NAME == 'develop') {
+        return 'dev'
+    }
+    if (env.BRANCH_NAME?.startsWith('release/')) {
+        return 'staging'
+    }
+    if (env.BRANCH_NAME == 'main') {
+        return 'prod'
+    }
+    return 'build-only'
+}
+
 pipeline {
-    agent any
+    agent { label 'principal' }
 
     options {
         timestamps()
@@ -20,6 +33,12 @@ pipeline {
         SERVICE_NAME = 'do-product-service'
         IMAGE_REPO = 'joseptz/do-product-service'
         DOCKERFILE_PATH = 'Dockerfile'
+        K8S_DEPLOYMENT_NAME = 'product-service'
+        K8S_GREEN_DEPLOYMENT_NAME = 'product-service-green'
+        K8S_CONTAINER_NAME = 'product-service'
+        K8S_APP_LABEL = 'product-service'
+        K8S_STABLE_SERVICE_NAME = 'product-service'
+        K8S_NODEPORT_SERVICE_NAME = 'product-service-nodeport'
     }
 
     stages {
@@ -111,21 +130,33 @@ pipeline {
             steps {
                 script {
                     def tags = buildTags()
-                    if (env.BRANCH_NAME == 'develop') {
-                        writeFile file: 'deploy-target.txt', text: "dev:${tags.versionTag}\n"
-                    } else if (env.BRANCH_NAME?.startsWith('release/')) {
-                        writeFile file: 'deploy-target.txt', text: "staging:${tags.versionTag}\n"
-                    } else if (env.BRANCH_NAME == 'main') {
+                    def deployEnv = resolveDeployEnvironment()
+                    if (deployEnv == 'prod') {
                         input message: 'Approve production deployment?', ok: 'Deploy'
-                        writeFile file: 'deploy-target.txt', text: "prod:${tags.versionTag}\n"
-                    } else {
-                        writeFile file: 'deploy-target.txt', text: "build-only:${tags.versionTag}\n"
+                    }
+
+                    writeFile file: 'deploy-target.txt', text: "${deployEnv}:${tags.versionTag}\n"
+
+                    if (deployEnv != 'build-only') {
+                        powershell """
+                        \$namespace = "ecommerce-${deployEnv}"
+                        \$selectorPatch = @{ spec = @{ selector = @{ app = "${env.K8S_APP_LABEL}"; version = "green" } } } | ConvertTo-Json -Compress
+                        kubectl apply -k ..\\k8s\\overlays\\${deployEnv}
+                        kubectl set image deployment/${env.K8S_GREEN_DEPLOYMENT_NAME} ${env.K8S_CONTAINER_NAME}=${env.IMAGE_REPO}:${tags.versionTag} -n \$namespace
+                        kubectl rollout status deployment/${env.K8S_GREEN_DEPLOYMENT_NAME} -n \$namespace --timeout=300s
+                        kubectl patch service/${env.K8S_STABLE_SERVICE_NAME} -n \$namespace --type merge -p \$selectorPatch
+                        kubectl patch service/${env.K8S_NODEPORT_SERVICE_NAME} -n \$namespace --type merge -p \$selectorPatch
+                        kubectl get deployment/${env.K8S_GREEN_DEPLOYMENT_NAME} -n \$namespace -o wide | Out-File -FilePath deployment-validation.txt
+                        kubectl get service/${env.K8S_STABLE_SERVICE_NAME} -n \$namespace -o wide | Out-File -FilePath deployment-validation.txt -Append
+                        kubectl get service/${env.K8S_NODEPORT_SERVICE_NAME} -n \$namespace -o wide | Out-File -FilePath deployment-validation.txt -Append
+                        kubectl get pods -n \$namespace -l app=${env.K8S_APP_LABEL},version=green -o wide | Out-File -FilePath deployment-validation.txt -Append
+                        """
                     }
                 }
             }
             post {
                 always {
-                    archiveArtifacts artifacts: 'deploy-target.txt', allowEmptyArchive: true
+                    archiveArtifacts artifacts: 'deploy-target.txt,deployment-validation.txt', allowEmptyArchive: true
                 }
             }
         }
